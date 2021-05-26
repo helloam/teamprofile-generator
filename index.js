@@ -19,7 +19,7 @@ function chooseNewEmployee() {
             type: "list",
             message: "Which employee would you like to add?",
             name: "name",
-            choices: ["Engineer", "Intern", "Manager", "None, all done!"],
+            choices: ["Engineer", "Intern", "Manager", "Nothing else to add"],
         },
     ]).then(val => {
         if (val.name === "Engineer") {
@@ -28,7 +28,7 @@ function chooseNewEmployee() {
             addIntern();
         } else if (val.name === "Manager") {
             addManager();
-        } else if (val.name === "That'all, nothing else.") {
+        } else if (val.name === "Nothing else to add") {
             generateHTML(outputPath, render(roster));
         };
     });
