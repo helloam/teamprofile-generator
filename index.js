@@ -34,7 +34,7 @@ function chooseNewEmployee() {
     });
 }
 
-// Function to add an Engineer profile
+
 function addEngineer() {
     return inquirer.prompt([
         {
@@ -64,7 +64,7 @@ function addEngineer() {
     });
 }
 
-// Function to add an Intern profile
+
 function addIntern() {
     return inquirer.prompt([
         {
@@ -125,9 +125,13 @@ function addManager() {
 }
 
 // Function to generate the HTML file
-function generateHTML() {
-    fs.writeFileSync(outputPath, render(roster),"utf-8");
-    console.log("Team page successfully created!");
-}
+function generateHTML(fileName, data) {
+    fs.writeFile(fileName, data, "utf8", function (err) {
+        if (err) {
+            throw err;
+    }
+    console.log("HTML Page Complete!");
+    });
+};
 
 chooseNewEmployee();
